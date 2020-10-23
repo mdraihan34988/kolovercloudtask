@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2020 at 06:12 PM
+-- Generation Time: Oct 23, 2020 at 02:37 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -75,6 +75,12 @@ ALTER TABLE `item`
   ADD PRIMARY KEY (`Id`);
 
 --
+-- Indexes for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD KEY `transactionByitem` (`Item_Id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -83,6 +89,16 @@ ALTER TABLE `item`
 --
 ALTER TABLE `item`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD CONSTRAINT `transactionByitem` FOREIGN KEY (`Item_Id`) REFERENCES `item` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
